@@ -1,4 +1,4 @@
-# spotify
+# spoilMe
 
 > A Vue.js project
 
