@@ -1,13 +1,29 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <button @click="toggleMe">Toggle</button>
+    <hr/>
+    <img v-if="isTrue" src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+    computed:{
+      // 1A) computed would read my store getter onLoad
+      isTrue(){
+          return this.$store.getters.isTrue;
+      }
+    },
+    data(){
+      return{}
+    },
+    methods:{
+      toggleMe: function(){
+          this.$store.dispatch('toggle');
+      }
+    }
 }
 </script>
 
