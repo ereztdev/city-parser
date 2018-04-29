@@ -11,45 +11,51 @@ export default new Vuex.Store({
     state: {
         isTrue: true,
         cityNames: [],
+        isLoaded: false
     },
 
     // 1D) getter is a listener that would
     // observe changes in state
-    getters:{
-        isTrue(state){
+    getters: {
+        isTrue(state) {
             return state.isTrue;
         },
-        getCityNames(state){
+        getCityNames(state) {
             return state.cityNames;
+        },
+        didItLoad(state){
+            return state.isLoaded;
         }
     },
 
     // 1C) mutations would be the only
     // method changing state directly
     mutations: {
-        toggle(state){
+        toggle(state) {
             state.isTrue = !state.isTrue;
         },
-        SetCityNames(state, cityNames){
+        SetCityNames(state, cityNames) {
             state.cityNames = cityNames
+        },
+        changeLoadedState(state){
+            state.isLoaded = true
         }
     },
 
     // 1B) action would only dispatch
     // asynchronously onto mutations
     actions: {
-        toggle(context){
+        toggle(context) {
             context.commit('toggle')
-
         },
-        loadData({commit}){
+        loadData({commit}) {
             axios.get('http://localhost:3000/allCities')
                 .then(function (response) {
-                    commit('SetCityNames', response.data)
+                    commit('SetCityNames', response.data);
+                    commit('changeLoadedState');
                 }).catch(function (error) {
-                    console.log(error);
-                });
-
+                console.log(error);
+            });
         }
     },
 

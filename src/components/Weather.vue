@@ -4,9 +4,9 @@
             Select a Country
         </h1>
         <!--<button @click="getCity">con city</button>-->
-        <select>
+        <select v-if="isLoaded">
             <option disabled value="">Please select one</option>
-            <option v-for="cityName in $store.getters.cityNames">{{cityName}}</option>
+            <option v-for="cityName in renderCities">{{cityName}}</option>
         </select>
 
     </div>
@@ -15,6 +15,15 @@
 <script>
     export default {
         name: "Weather",
+        computed:{
+          isLoaded(){
+              return this.$store.getters.didItLoad;
+          },
+            renderCities(){
+                return this.$store.getters.getCityNames;
+
+            }
+        },
         methods: {
             allCityNames() {
                 this.$store.dispatch('loadData')
