@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <button @click="toggleMe">Toggle</button>
+      <Weather />
+
+      <button @click="toggleMe">Toggle</button>
     <hr/>
     <img v-if="isTrue" src="./assets/logo.png">
     <router-view/>
@@ -8,8 +10,10 @@
 </template>
 
 <script>
+import Weather from "./components/Weather";
 export default {
   name: 'App',
+    components: {Weather},
     computed:{
       // 1A) computed would read my store getter onLoad
       isTrue(){
