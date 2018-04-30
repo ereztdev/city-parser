@@ -15,6 +15,7 @@
         methods: {
             onChange() {
                 this.$store.state.theAutoComplete.isOpen = true;
+
             },
             setResult(result){
                 this.$store.state.theAutoComplete.search = result;
@@ -27,7 +28,17 @@
             },
             results(){
                 return this.$store.state.theAutoComplete.results;
-            }
+            },
+            search: {
+                get() {
+                    return this.$store.state.theAutoComplete.search;
+
+                },
+                set(value) {
+                    this.$store.commit('updateSearch', value)
+
+                }
+            },
         }
 
     }

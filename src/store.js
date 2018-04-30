@@ -41,10 +41,12 @@ export default new Vuex.Store({
         },
         SetCityNames(state, cityNames) {
             state.cityNames = cityNames;
-            state.theAutoComplete.results = cityNames
         },
         changeLoadedState(state) {
             state.isLoaded = true
+        },
+        updateSearch(state, value){
+            state.theAutoComplete.search = value
         }
     },
 

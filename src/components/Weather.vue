@@ -15,11 +15,11 @@
 <script>
     export default {
         name: "Weather",
-        computed:{
-          isLoaded(){
-              return this.$store.getters.didItLoad;
-          },
-            renderCities(){
+        computed: {
+            isLoaded() {
+                return this.$store.getters.didItLoad;
+            },
+            renderCities() {
                 return this.$store.getters.getCityNames;
 
             }
@@ -29,20 +29,20 @@
                 this.$store.dispatch('loadData')
             }
         },
-            // getCityId() {
-            //     axios.post('http://localhost:3000/city',
-            //         this.name, // the data to post
-            //         {
-            //             headers: {
-            //                 'Content-type': 'application/x-www-form-urlencoded',
-            //             }
-            //         }).then(response => {
-            //         console.log(response);
-            //     }).catch(function (error) {
-            //         console.log(error);
-            //     });
-            //
-            // },
+        // getCityId() {
+        //     axios.post('http://localhost:3000/city',
+        //         this.name, // the data to post
+        //         {
+        //             headers: {
+        //                 'Content-type': 'application/x-www-form-urlencoded',
+        //             }
+        //         }).then(response => {
+        //         console.log(response);
+        //     }).catch(function (error) {
+        //         console.log(error);
+        //     });
+        //
+        // },
 
         created() {
             this.allCityNames();
