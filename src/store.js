@@ -11,7 +11,12 @@ export default new Vuex.Store({
     state: {
         isTrue: true,
         cityNames: [],
-        isLoaded: false
+        isLoaded: false,
+        theAutoComplete:{
+            search: '',
+            results: [],
+            isOpen: false,
+        }
     },
 
     // 1D) getter is a listener that would
@@ -23,7 +28,7 @@ export default new Vuex.Store({
         getCityNames(state) {
             return state.cityNames;
         },
-        didItLoad(state){
+        didItLoad(state) {
             return state.isLoaded;
         }
     },
@@ -35,9 +40,10 @@ export default new Vuex.Store({
             state.isTrue = !state.isTrue;
         },
         SetCityNames(state, cityNames) {
-            state.cityNames = cityNames
+            state.cityNames = cityNames;
+            state.theAutoComplete.results = cityNames
         },
-        changeLoadedState(state){
+        changeLoadedState(state) {
             state.isLoaded = true
         }
     },
