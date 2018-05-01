@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>
-            Select a Country
+            Select a City
         </h1>
         <!--<button @click="getCity">con city</button>-->
         <select v-if="isLoaded">

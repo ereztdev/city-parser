@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-      <autocomplete :items="[ 'Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']" />
 <hr/>
       <Weather />
       <button @click="toggleMe">Toggle</button>
